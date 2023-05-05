@@ -1,7 +1,7 @@
 user_dir: "/home/azureuser"
 
 djangoservice:
-  workingdir: /home/azureuser/django-project/myproject
+  workingdir: /home/azureuser/django-project/myproject/myproject
   execstart: /home/azureuser/django-project/myvenv/bin/gunicorn --access-logfile - --workers 3 --bind 0.0.0.0:8000 myproject.wsgi:application
 
 django:
@@ -10,3 +10,4 @@ django:
     DATABASE_URL: "postgresql://demouser:pass123@localhost/demodb"
   
 user_name: "azureuser"
+app_port: 8000
