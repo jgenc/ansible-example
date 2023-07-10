@@ -35,8 +35,8 @@
       path: "{{ app_dir }}/dokcer-compose.yaml"
     register: docker_compose_file
 
-  - debug:
-      msg: "docker_compose_file variable: {{ docker_compose_file }}"
+  # - debug:
+  #     msg: "docker_compose_file variable: {{ docker_compose_file }}"
 
   # - name: build and run an image
   #   block:
@@ -57,14 +57,14 @@
   #   when: docker_compose_file.stat.exists == False
 
   - name: run docker docker-compose
-    block:
-      - name: Run `docker-compose up`
-        docker_compose:
-          project_src: "{{app_dir}}"
-          build: yes
-        register: output
+    # block:
+    #   - name: Run `docker-compose up`
+    docker_compose:
+      project_src: "{{app_dir}}"
+      build: yes
+    register: output
 
-      - debug:
-          var: output
+      # - debug:
+      #     var: output
 
-    when: docker_compose_file.stat.exists == True
+    # when: docker_compose_file.stat.exists == True
