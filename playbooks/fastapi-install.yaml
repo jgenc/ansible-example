@@ -8,10 +8,6 @@
 
   tasks:
 
-  - name: Set a fact with the user name.
-    set_fact:
-      login_user: "{{ whoami.stdout }}"
-
   - name: ensure github.com is a known host
     lineinfile:
       dest: "{{user_dir}}/.ssh/known_hosts"
@@ -33,9 +29,6 @@
   - name: copy env file
     shell : "cp {{app_dir}}/.env.example {{app_dir}}/.env"
 
-
-  - debug:
-      msg: "Groups: {{ user_groups }}"
 
   - name: Check if docker-compose exists
     stat:
